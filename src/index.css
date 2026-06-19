@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Theme Variables & Styles */
+:root {
+  --brand-600: #6366f1;
+  --brand-500: #818cf8;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Outfit', sans-serif;
+  background-color: #f6f5fc; /* Soft warm lavender background */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.06) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(129, 140, 248, 0.04) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: #1e1b4b; /* Deep indigo text instead of plain dark grey */
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark body {
+  background-color: #050414; /* Deep premium obsidian-indigo dark mode */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.16) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(129, 140, 248, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: #e0e7ff; /* Glowing lavender-white text */
+}
+
+/* Glassmorphism Wrapper styling */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.02);
+}
+
+.dark .glass {
+  background: rgba(12, 10, 32, 0.65);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Custom Nav Link styling */
+.nav-link-custom {
+  color: #4f46e5;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 14px;
+}
+.dark .nav-link-custom {
+  color: #a5b4fc;
+}
+.nav-link-custom:hover {
+  background: rgba(99, 102, 241, 0.08);
+  color: #4f46e5;
+}
+.dark .nav-link-custom:hover {
+  background: rgba(236, 72, 153, 0.12);
+  color: #f472b6;
+}
+.nav-link-custom.active {
+  background: rgba(99, 102, 241, 0.15);
+  color: #4f46e5;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.1);
+}
+.dark .nav-link-custom.active {
+  background: rgba(99, 102, 241, 0.25);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+/* Premium Buttons */
+.btn-custom {
+  border-radius: 14px;
+  padding: 0.65rem 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+.btn-custom:active {
+  transform: translateY(1.5px);
+}
+.btn-brand-custom {
+  background: linear-gradient(135deg, #6366f1, #d946ef);
+  color: white;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+}
+.btn-brand-custom:hover {
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.45);
+  transform: translateY(-1.5px) scale(1.02);
+}
+
+/* Premium Hover Cards */
+.cardish-custom {
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms ease, border-color 200ms ease;
+}
+.cardish-custom:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.08);
+}
+.dark .cardish-custom:hover {
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.1);
+}
+
+/* Dynamic Gradients */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #6366f1, #d946ef);
+}
+
+.badge-premium-apply {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50/60 text-indigo-600 border border-indigo-100 dark:bg-purple-950/40 dark:text-purple-300 dark:border-purple-900/60;
+}
+
+.input-premium-apply {
+  @apply w-full px-4 py-2.5 rounded-xl border border-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all bg-white/80 text-indigo-950 placeholder-indigo-300 dark:border-indigo-900/60 dark:focus:ring-indigo-500/35 dark:bg-indigo-950/20 dark:text-white dark:placeholder-indigo-700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f0f8;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #060515;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #2e2a5e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+/* Live Resume Sheet Previewer: Always styled as a clean white paper page with solid black text and dark dividers (even in dark mode) */
+#resume-preview-section {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+#resume-preview-section,
+#resume-preview-section * {
+  color: #000000 !important;
+  opacity: 1 !important;
+  --tw-text-opacity: 1 !important;
+  --tw-bg-opacity: 1 !important;
+  --tw-border-opacity: 1 !important;
+  text-decoration-color: #000000 !important;
+}
+
+#resume-preview-section border-b,
+#resume-preview-section .border-b,
+#resume-preview-section .border-slate-200,
+#resume-preview-section .border-slate-350 {
+  border-color: #475569 !important; /* Slate-600 highly visible lines */
+}
+
+/* Modern Template sidebar page representation on screen and print */
+#resume-preview-section .bg-indigo-950,
+#resume-preview-section .bg-indigo-950 * {
+  background-color: #f1f5f9 !important; /* light grey background for visual separation */
+  color: #000000 !important;
+}
+
+/* Print styles to only print the resume preview */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body, html, main, #root {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+  }
+
+  .resume-grid-container {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #resume-preview-section {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Override tailwind slate colors globally to map to gorgeous indigo-violet tones */
+.bg-slate-50 { @apply bg-indigo-50/30; }
+.dark .bg-slate-50 { @apply bg-indigo-950/30; }
+
+.bg-slate-100 { @apply bg-indigo-50/70; }
+.dark .bg-slate-100 { @apply bg-indigo-950/50; }
+
+.bg-slate-200 { @apply bg-indigo-100/80; }
+.dark .bg-slate-200 { @apply bg-indigo-900/50; }
+
+.text-slate-500 { @apply text-indigo-900/60; }
+.dark .text-slate-500 { @apply text-indigo-300; }
+
+.text-slate-600 { @apply text-indigo-950/75; }
+.dark .text-slate-600 { @apply text-indigo-200/80; }
+
+.text-slate-700 { @apply text-indigo-950/85; }
+.dark .text-slate-700 { @apply text-indigo-200; }
+
+.text-slate-800 { @apply text-indigo-950; }
+.dark .text-slate-800 { @apply text-indigo-100; }
+
+.text-slate-900 { @apply text-indigo-950; }
+.dark .text-slate-900 { @apply text-white; }
+
+.border-slate-100 { @apply border-indigo-100/30; }
+.dark .border-slate-100 { @apply border-indigo-900/20; }
+
+.border-slate-200 { @apply border-indigo-100/60; }
+.dark .border-slate-200 { @apply border-indigo-900/40; }
+
+.border-slate-800 { @apply border-indigo-900/80; }
+.dark .border-slate-800 { @apply border-indigo-900/50; }
+
+/* Custom premium chip styling */
+.chip {
+  @apply px-4 py-2 rounded-xl text-xs font-bold transition-all border border-indigo-100/50 bg-white/70 text-indigo-600 hover:bg-indigo-50/60 dark:border-indigo-900/50 dark:bg-indigo-950/40 dark:text-indigo-300 dark:hover:bg-indigo-900/30;
+}
